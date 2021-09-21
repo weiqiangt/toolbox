@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install go
+      community.general.homebrew:
+        name: [
+          'go',
+        ]
+        state: present
+        update_homebrew: yes
+    - name: Execute change-brew-repo.sh
+      script: change-brew-repo.sh

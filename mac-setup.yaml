@@ -1,11 +1,11 @@
 ---
 - hosts: localhost
+
   tasks:
-    - name: Install go
+    - include_vars: vars.yaml
+    - name: Install tools and libs
       community.general.homebrew:
-        name: [
-          'go',
-        ]
+        name: "{{brew_revision}}"
         state: present
         update_homebrew: yes
     - name: Execute change-brew-repo.sh
